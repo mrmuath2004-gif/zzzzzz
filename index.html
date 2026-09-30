@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- يجعل الصفحة مناسبة للموبايل -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>إلى زينب ❤️</title>
+
+    <style>
+
+        /* =========================
+           إعدادات عامة
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Arial", sans-serif;
+            background: #05000d;
+            color: white;
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           الخلفية
+        ========================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 20%, #5d075f55, transparent 30%),
+                radial-gradient(circle at 80% 70%, #ff176d33, transparent 30%),
+                linear-gradient(135deg, #05000d, #160019, #020006);
+            z-index: -10;
+        }
+
+
+        /* =========================
+           النجوم
+        ========================= */
+
+        .stars {
+            position: fixed;
+            inset: 0;
+            z-index: -5;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px white;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+
+            from {
+                opacity: .2;
+                transform: scale(.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+
+
+        /* =========================
+           الشاشة الرئيسية
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+
+
+        /* =========================
+           دائرة خلف الاسم
+        ========================= */
+
+        .glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+
+            background: radial-gradient(
+                circle,
+                #ff147a55,
+                transparent 70%
+            );
+
+            filter: blur(30px);
+
+            animation: glowMove 5s infinite alternate ease-in-out;
+        }
+
+        @keyframes glowMove {
+
+            from {
+                transform: scale(.8);
+                opacity: .5;
+            }
+
+            to {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+
+
+        /* =========================
+           محتوى Hero
+        ========================= */
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .small-text {
+            font-size: 20px;
+            color: #ffb7d9;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+
+            opacity: 0;
+            animation: fadeUp 1.5s forwards;
+        }
+
+        .hero h1 {
+
+            font-size: clamp(70px, 15vw, 170px);
+
+            font-weight: 900;
+
+            background: linear-gradient(
+                90deg,
+                #ff5ca8,
+                #fff,
+                #ff1e78,
+                #ff9aca
+            );
+
+            background-size: 300%;
+
+            -webkit-background-clip: text;
+            color: transparent;
+
+            animation:
+                gradientText 5s infinite,
+                titleAppear 2s forwards;
+
+            text-shadow:
+                0 0 30px #ff187766,
+                0 0 80px #ff187733;
+        }
+
+        @keyframes gradientText {
+
+            0% {
+                background-position: 0%;
+            }
+
+            50% {
+                background-position: 100%;
+            }
+
+            100% {
+                background-position: 0%;
+            }
+        }
+
+        @keyframes titleAppear {
+
+            from {
+                opacity: 0;
+                transform: scale(.5) translateY(50px);
+                filter: blur(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+                filter: blur(0);
+            }
+        }
+
+
+        /* =========================
+           الجملة
+        ========================= */
+
+        .love-text {
+
+            max-width: 700px;
+
+            margin: 25px auto;
+
+            font-size: clamp(18px, 3vw, 28px);
+
+            line-height: 2;
+
+            color: #ffe5f1;
+
+            opacity: 0;
+
+            animation: fadeUp 2s 1s forwards;
+        }
+
+
+        /* =========================
+           زر الرسالة
+        ========================= */
+
+        .love-button {
+
+            position: relative;
+
+            margin-top: 30px;
+
+            padding: 18px 45px;
+
+            border: none;
+
+            border-radius: 50px;
+
+            background: linear-gradient(
+                90deg,
+                #ff176f,
+                #ff5da2
+            );
+
+            color: white;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 0 20px #ff176f88,
+                0 0 60px #ff176f44;
+
+            overflow: hidden;
+
+            opacity: 0;
+
+            animation: fadeUp 2s 1.5s forwards;
+
+            transition: .3s;
+        }
+
+        .love-button:hover {
+
+            transform: translateY(-5px) scale(1.05);
+
+            box-shadow:
+                0 0 30px #ff176f,
+                0 0 100px #ff176f88;
+        }
+
+
+        /* =========================
+           سهم النزول
+        ========================= */
+
+        .scroll {
+
+            position: absolute;
+
+            bottom: 30px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            font-size: 30px;
+
+            animation: bounce 1.5s infinite;
+
+            color: #ff8fbd;
+        }
+
+        @keyframes bounce {
+
+            0%,100% {
+                transform: translate(-50%, 0);
+            }
+
+            50% {
+                transform: translate(-50%, 15px);
+            }
+        }
+
+
+        /* =========================
+           قسم الرسالة
+        ========================= */
+
+        .message-section {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 80px 20px;
+
+            position: relative;
+        }
+
+        .glass-card {
+
+            width: min(850px, 95%);
+
+            padding: 60px 40px;
+
+            border-radius: 30px;
+
+            background: rgba(255,255,255,.06);
+
+            border: 1px solid rgba(255,255,255,.12);
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 0 60px #ff176f22,
+                inset 0 0 30px rgba(255,255,255,.03);
+
+            text-align: center;
+
+            transform: translateY(80px);
+
+            opacity: 0;
+
+            transition: 1s;
+        }
+
+        .glass-card.show {
+
+            transform: translateY(0);
+
+            opacity: 1;
+        }
+
+        .glass-card h2 {
+
+            font-size: 45px;
+
+            margin-bottom: 30px;
+
+            color: #ff78ad;
+
+            text-shadow: 0 0 20px #ff176f;
+        }
+
+        .glass-card p {
+
+            font-size: 21px;
+
+            line-height: 2.2;
+
+            color: #f9dce9;
+        }
+
+
+        /* =========================
+           عداد الأيام
+        ========================= */
+
+        .counter-section {
+
+            padding: 100px 20px;
+
+            text-align: center;
+        }
+
+        .counter-title {
+
+            font-size: 35px;
+
+            margin-bottom: 50px;
+
+            color: #ff8fbd;
+        }
+
+        .counter {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 20px;
+        }
+
+        .counter-box {
+
+            width: 140px;
+
+            height: 140px;
+
+            border-radius: 25px;
+
+            background: rgba(255,255,255,.05);
+
+            border: 1px solid #ffffff18;
+
+            backdrop-filter: blur(15px);
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            box-shadow: 0 0 30px #ff176f22;
+
+            transition: .4s;
+        }
+
+        .counter-box:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow: 0 0 40px #ff176f66;
+        }
+
+        .counter-box strong {
+
+            font-size: 40px;
+
+            color: #ff5799;
+        }
+
+        .counter-box span {
+
+            margin-top: 8px;
+
+            color: #ddd;
+        }
+
+
+        /* =========================
+           الرسالة السرية
+        ========================= */
+
+        .secret {
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0,0,0,.8);
+
+            backdrop-filter: blur(15px);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            z-index: 100;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition: .5s;
+
+            padding: 20px;
+        }
+
+        .secret.active {
+
+            opacity: 1;
+
+            visibility: visible;
+        }
+
+        .secret-box {
+
+            width: min(700px, 95%);
+
+            padding: 60px 40px;
+
+            background: linear-gradient(
+                145deg,
+                #24001f,
+                #10000f
+            );
+
+            border: 1px solid #ff579966;
+
+            border-radius: 30px;
+
+            text-align: center;
+
+            transform: scale(.5);
+
+            transition: .6s;
+
+            box-shadow:
+                0 0 100px #ff176f55;
+        }
+
+        .secret.active .secret-box {
+
+            transform: scale(1);
+        }
+
+        .secret-box h2 {
+
+            font-size: 45px;
+
+            color: #ff69a8;
+
+            margin-bottom: 25px;
+        }
+
+        .secret-box p {
+
+            font-size: 22px;
+
+            line-height: 2.2;
+
+            color: #ffe7f1;
+        }
+
+        .close {
+
+            margin-top: 30px;
+
+            padding: 12px 30px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #ff176f;
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           القلوب
+        ========================= */
+
+        .heart {
+
+            position: fixed;
+
+            pointer-events: none;
+
+            z-index: 50;
+
+            animation: heartFloat linear forwards;
+        }
+
+        @keyframes heartFloat {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    scale(.5)
+                    rotate(0deg);
+
+                opacity: 1;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-100vh)
+                    scale(1.5)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================
+           حركة الماوس
+        ========================= */
+
+        .cursor-glow {
+
+            position: fixed;
+
+            width: 250px;
+
+            height: 250px;
+
+            border-radius: 50%;
+
+            background: #ff176f18;
+
+            filter: blur(40px);
+
+            pointer-events: none;
+
+            transform: translate(-50%, -50%);
+
+            z-index: -1;
+        }
+
+
+        /* =========================
+           Animation عامة
+        ========================= */
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(40px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================
+           Footer
+        ========================= */
+
+        footer {
+
+            padding: 50px;
+
+            text-align: center;
+
+            color: #aaa;
+        }
+
+        footer span {
+
+            color: #ff5799;
+        }
+
+
+        /* =========================
+           الموبايل
+        ========================= */
+
+        @media(max-width:600px) {
+
+            .glass-card {
+
+                padding: 40px 20px;
+            }
+
+            .glass-card h2 {
+
+                font-size: 32px;
+            }
+
+            .glass-card p {
+
+                font-size: 17px;
+            }
+
+            .counter-box {
+
+                width: 100px;
+
+                height: 100px;
+            }
+
+            .counter-box strong {
+
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         الخلفية
+    ========================= -->
+
+    <div class="background"></div>
+
+    <div class="stars" id="stars"></div>
+
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+
+    <!-- =========================
+         الصفحة الرئيسية
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="glow"></div>
+
+        <div class="hero-content">
+
+            <div class="small-text">
+                إلى أجمل شخص في حياتي
+            </div>
+
+            <h1>
+                زينب
+            </h1>
+
+            <p class="love-text">
+
+                في وسط هذا العالم الكبير...
+                كان أجمل شيء حدث لي
+                أنني عرفتكِ. ❤️
+
+                <br>
+
+                هذه الصفحة ليست مجرد صفحة،
+                بل جزء صغير من الكلام
+                الذي لا أعرف كيف أقوله لكِ.
+
+            </p>
+
+            <button class="love-button" id="openMessage">
+
+                💌 افتحي رسالتي
+
+            </button>
+
+        </div>
+
+        <div class="scroll">
+            ↓
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         الرسالة
+    ========================= -->
+
+    <section class="message-section">
+
+        <div class="glass-card" id="card">
+
+            <h2>
+                زينب ❤️
+            </h2>
+
+            <p>
+
+                أحيانًا لا نحتاج إلى ألف شخص حولنا...
+
+                نحتاج فقط إلى شخص واحد
+                يجعل وجوده كل شيء أجمل.
+
+                <br><br>
+
+                وأنتِ بالنسبة لي
+                لستِ مجرد شخص عابر.
+
+                أنتِ ذكرى جميلة،
+                وابتسامة،
+                وسبب يجعل الأيام
+                أكثر جمالًا.
+
+                <br><br>
+
+                ولو كان بإمكاني أن أضع
+                كل الكلام الجميل في هذه الصفحة...
+
+                لما كان كافيًا ليصف
+                مكانتكِ عندي. ❤️
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         العداد
+    ========================= -->
+
+    <section class="counter-section">
+
+        <h2 class="counter-title">
+            وكل يوم يصبح أجمل ❤️
+        </h2>
+
+        <div class="counter">
+
+            <div class="counter-box">
+
+                <strong id="days">
+                    0
+                </strong>
+
+                <span>
+                    يوم
+                </span>
+
+            </div>
+
+            <div class="counter-box">
+
+                <strong id="hours">
+                    0
+                </strong>
+
+                <span>
+                    ساعة
+                </span>
+
+            </div>
+
+            <div class="counter-box">
+
+                <strong id="minutes">
+                    0
+                </strong>
+
+                <span>
+                    دقيقة
+                </span>
+
+            </div>
+
+            <div class="counter-box">
+
+                <strong id="seconds">
+                    0
+                </strong>
+
+                <span>
+                    ثانية
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         Footer
+    ========================= -->
+
+    <footer>
+
+        صُنعت بحب لـ
+        <span>
+            زينب ❤️
+        </span>
+
+    </footer>
+
+
+    <!-- =========================
+         الرسالة السرية
+    ========================= -->
+
+    <div class="secret" id="secret">
+
+        <div class="secret-box">
+
+            <h2>
+                رسالة سرية ❤️
+            </h2>
+
+            <p>
+
+                زينب...
+
+                <br><br>
+
+                إذا وصلتي إلى هنا،
+                فأنا أريدكِ أن تعرفي شيئًا واحدًا:
+
+                <br><br>
+
+                مهما حاولت أن أكتب،
+                ومهما حاولت أن أشرح...
+
+                <br>
+
+                ستبقى هناك مشاعر
+                أكبر من أن تستطيع الكلمات وصفها.
+
+                <br><br>
+
+                أحب وجودكِ في حياتي. ❤️
+
+            </p>
+
+            <button class="close" id="closeMessage">
+
+                إغلاق ❤️
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* =========================
+           إنشاء النجوم
+        ========================= */
+
+        const stars = document.getElementById("stars");
+
+        for (let i = 0; i < 120; i++) {
+
+            const star = document.createElement("div");
+
+            star.classList.add("star");
+
+            star.style.left =
+                Math.random() * 100 + "%";
+
+            star.style.top =
+                Math.random() * 100 + "%";
+
+            star.style.animationDelay =
+                Math.random() * 3 + "s";
+
+            star.style.animationDuration =
+                1 + Math.random() * 3 + "s";
+
+            stars.appendChild(star);
+        }
+
+
+        /* =========================
+           ضوء الماوس
+        ========================= */
+
+        const cursorGlow =
+            document.getElementById("cursorGlow");
+
+        document.addEventListener("mousemove", (e) => {
+
+            cursorGlow.style.left =
+                e.clientX + "px";
+
+            cursorGlow.style.top =
+                e.clientY + "px";
+
+        });
+
+
+        /* =========================
+           ظهور الكارد عند النزول
+        ========================= */
+
+        const card =
+            document.getElementById("card");
+
+        const observer =
+            new IntersectionObserver((entries) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        card.classList.add("show");
+
+                    }
+
+                });
+
+            }, {
+                threshold: .3
+            });
+
+        observer.observe(card);
+
+
+        /* =========================
+           إنشاء قلب
+        ========================= */
+
+        function createHeart(x, y) {
+
+            const heart =
+                document.createElement("div");
+
+            heart.classList.add("heart");
+
+            const hearts = [
+                "❤️",
+                "💖",
+                "💕",
+                "💗",
+                "💓",
+                "💘"
+            ];
+
+            heart.innerText =
+                hearts[
+                    Math.floor(
+                        Math.random() * hearts.length
+                    )
+                ];
+
+            heart.style.left = x + "px";
+
+            heart.style.top = y + "px";
+
+            heart.style.fontSize =
+                15 + Math.random() * 30 + "px";
+
+            heart.style.animationDuration =
+                2 + Math.random() * 3 + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 5000);
+        }
+
+
+        /* =========================
+           قلوب تلقائية
+        ========================= */
+
+        setInterval(() => {
+
+            createHeart(
+                Math.random() * window.innerWidth,
+                window.innerHeight + 30
+            );
+
+        }, 800);
+
+
+        /* =========================
+           الرسالة السرية
+        ========================= */
+
+        const openMessage =
+            document.getElementById("openMessage");
+
+        const closeMessage =
+            document.getElementById("closeMessage");
+
+        const secret =
+            document.getElementById("secret");
+
+
+        openMessage.addEventListener("click", () => {
+
+            secret.classList.add("active");
+
+            /* انفجار قلوب */
+
+            for (let i = 0; i < 40; i++) {
+
+                setTimeout(() => {
+
+                    createHeart(
+                        window.innerWidth / 2 +
+                        (Math.random() - .5) * 400,
+
+                        window.innerHeight / 2 +
+                        (Math.random() - .5) * 300
+                    );
+
+                }, i * 50);
+
+            }
+
+        });
+
+
+        closeMessage.addEventListener("click", () => {
+
+            secret.classList.remove("active");
+
+        });
+
+
+        /* =========================
+           إغلاق بالضغط خارج الرسالة
+        ========================= */
+
+        secret.addEventListener("click", (e) => {
+
+            if (e.target === secret) {
+
+                secret.classList.remove("active");
+
+            }
+
+        });
+
+
+        /* =========================
+           عداد الوقت
+           
+           غيّر التاريخ هنا
+           
+           مثال:
+           2026-01-01
+        ========================= */
+
+        const startDate =
+            new Date("2026-01-01T00:00:00");
+
+
+        function updateCounter() {
+
+            const now =
+                new Date();
+
+            const difference =
+                now - startDate;
+
+
+            const seconds =
+                Math.floor(
+                    difference / 1000
+                );
+
+            const minutes =
+                Math.floor(
+                    seconds / 60
+                );
+
+            const hours =
+                Math.floor(
+                    minutes / 60
+                );
+
+            const days =
+                Math.floor(
+                    hours / 24
+                );
+
+
+            document.getElementById("days")
+                .innerText = days;
+
+            document.getElementById("hours")
+                .innerText =
+                hours % 24;
+
+            document.getElementById("minutes")
+                .innerText =
+                minutes % 60;
+
+            document.getElementById("seconds")
+                .innerText =
+                seconds % 60;
+
+        }
+
+
+        updateCounter();
+
+        setInterval(
+            updateCounter,
+            1000
+        );
+
+
+        /* =========================
+           تأثير عند الضغط على الشاشة
+        ========================= */
+
+        document.addEventListener("click", (e) => {
+
+            for (let i = 0; i < 8; i++) {
+
+                setTimeout(() => {
+
+                    createHeart(
+                        e.clientX +
+                        (Math.random() - .5) * 100,
+
+                        e.clientY +
+                        (Math.random() - .5) * 100
+                    );
+
+                }, i * 50);
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
